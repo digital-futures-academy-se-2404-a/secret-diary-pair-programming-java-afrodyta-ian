@@ -45,6 +45,18 @@ public class TestSecretDiary {
             assertEquals(diary.readDiary().get(0), "cat");
         }
 
+        @Test
+        @Description("Test that adding multiple entries works")
+        public void testOfEntertingMultipleEntries(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            // Act
+            diary.writeDiary("cat");
+            diary.writeDiary("Dog");
+            // Assert
+            assertEquals(diary.readDiary().size(), 2);
+        }
+
 
 
     }
