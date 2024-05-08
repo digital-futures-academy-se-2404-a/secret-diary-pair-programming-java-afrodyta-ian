@@ -4,10 +4,16 @@ import java.util.ArrayList;
 
 public class SecretDiary {
 
+    ArrayList<String> entries = new ArrayList<>();
+
     public ArrayList<String> readDiary(){
 
 
-        return new ArrayList<String>();
+        return entries;
 
+    }
+
+    public void writeDiary(String newEntry){
+        entries.add(newEntry);
     }
 }

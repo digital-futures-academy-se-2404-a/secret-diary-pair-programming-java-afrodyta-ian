@@ -17,7 +17,7 @@ The following are the user stories, domain models and tests for the Diary class.
 ### Tests
 
 - [x] the entries array increases in length when writeDiary adds an entry
-- [x] an empty or invalid entry should not be added to the diary
+- [ ] an empty or invalid entry should not be added to the diary
 
 ## User Story 2
 
