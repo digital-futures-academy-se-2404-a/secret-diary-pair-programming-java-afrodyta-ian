@@ -71,7 +71,30 @@ public class TestSecretDiary {
 
         @Test
         @Description("Test to see if unlocking when locked, will make it return unlocked")
-        public void testThatUnlockingUnlockstheDiary(){
+        public void testThatUnlockingUnlocksTheDiary(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            diary.lock();
+            // Act
+            diary.unlock("1234");
+            // Assert
+            assertFalse(diary.lockStatus());
+        }
+        @Test
+        @Description("Test to see if the incorrect pin dose not unlocks the diary")
+        public void testThatIncorrectPinDoseNotUnlockTheDiary(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            diary.lock();
+            // Act
+            diary.unlock("1111");
+            // Assert
+            assertTrue(diary.lockStatus());
+        }
+
+        @Test
+        @Description("Test to see if the correct pin dose unlock the diary")
+        public void testThatCorrectPinDoseUnlockTheDiary(){
             // Arrange
             SecretDiary diary = new SecretDiary();
             diary.lock();

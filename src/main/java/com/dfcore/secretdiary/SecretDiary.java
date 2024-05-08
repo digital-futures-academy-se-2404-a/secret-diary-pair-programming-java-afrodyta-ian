@@ -27,6 +27,6 @@ public class SecretDiary {
     }
 
     public void unlock(String pin){
-        isLocked = false;
+        if (pin.equals("1234")){isLocked = false;}
     }
 }
