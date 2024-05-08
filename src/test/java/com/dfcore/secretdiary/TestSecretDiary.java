@@ -4,8 +4,7 @@ import jdk.jfr.Description;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestSecretDiary {
 
@@ -46,8 +45,43 @@ public class TestSecretDiary {
             assertEquals(diary.readDiary().get(0), "cat");
         }
 
-
     }
+    @Nested
+    public class lockMechanismTests{
+        @Test
+        @Description("Test to see if the diaries lock status is returned")
+        public void testThatTheDefaultLockStatusIsReturned(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            // Act
+
+            // Assert
+            assertFalse(diary.lockStatus());
+        }
+        @Test
+        @Description("Test to see when locking it gets changed to locked")
+        public void testThatLockingItChangesItToLocked(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            // Act
+            diary.lock();
+            // Assert
+            assertTrue(diary.lockStatus());
+        }
+
+        @Test
+        @Description("Test to see if unlocking when locked, will make it return unlocked")
+        public void testThatUnlockingUnlockstheDiary(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            diary.lock();
+            // Act
+            diary.unlock("1234");
+            // Assert
+            assertFalse(diary.lockStatus());
+        }
+    }
+
 
 
 }
