@@ -17,7 +17,7 @@ public class TestSecretDiary {
             // Act
             SecretDiary diary = new SecretDiary();
             // Assert
-            assertEquals(diary.ReadDiary().Length(), 0);
+            assertEquals(diary.readDiary().size(), 0);
 
 
         }
