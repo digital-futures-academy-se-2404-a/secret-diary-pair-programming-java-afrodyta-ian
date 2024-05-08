@@ -45,6 +45,8 @@ public class TestSecretDiary {
             assertEquals(diary.readDiary().get(0), "cat");
         }
 
+
+
     }
     @Nested
     public class lockMechanismTests{
@@ -102,6 +104,31 @@ public class TestSecretDiary {
             diary.unlock("1234");
             // Assert
             assertFalse(diary.lockStatus());
+        }
+
+        @Test
+        @Description("Test to ensure a locked diary can't be joined")
+        public void testToEnsureLockedDiaryDoesntReturnEntries(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            diary.writeDiary("Shouldn't see this");
+
+            // Act
+            diary.lock();
+            // Assert
+            assertEquals(diary.readDiary().size(), 0);
+        }
+        @Test
+        @Description("Test to ensure a locked diary can't be written to ")
+        public void testToEnsureLockedDiaryDoesntTakeAnEntry(){
+            // Arrange
+            SecretDiary diary = new SecretDiary();
+            diary.lock();
+            // Act
+            diary.writeDiary("Shouldn't see this");
+            diary.unlock("1234");
+            // Assert
+            assertEquals(diary.readDiary().size(), 0);
         }
     }
 

@@ -61,8 +61,8 @@ The following are the user stories, domain models and tests for the Diary class.
 
 ### Tests
 
-- [ ] entering the correct pin will unlock the diary
-- [ ] entering the incorrect pin will not unlock the diary
+- [x] entering the correct pin will unlock the diary
+- [x] entering the incorrect pin will not unlock the diary
 - [ ] entering an erroneous value is handled correctly
 
 ## User Story 5
@@ -77,7 +77,7 @@ The following are the user stories, domain models and tests for the Diary class.
 
 ### Tests
 
-- [ ] the lock function will lock an unlocked diary
+- [x] the lock function will lock an unlocked diary
 
 ## User Story 6
 
@@ -91,8 +91,8 @@ The following are the user stories, domain models and tests for the Diary class.
 
 ### Tests
 
-- [ ] read diary doesn't return the diaries contents if it is locked
-- [ ] unlocking a locked diary allows the diary to then return the contents
+- [x] read diary doesn't return the diaries contents if it is locked
+- [x] unlocking a locked diary allows the diary to then return the contents
 
 ## User Story 7
 
@@ -106,8 +106,8 @@ The following are the user stories, domain models and tests for the Diary class.
 
 ### Tests
 
-- [ ] writeDiary doesn't add to the diaries entries
-- [ ] writeDiary will add to the entries if the diary is unlocked
+- [x] writeDiary doesn't add to the diaries entries
+- [x] writeDiary will add to the entries if the diary is unlocked
 
 ---
 ## Interface code

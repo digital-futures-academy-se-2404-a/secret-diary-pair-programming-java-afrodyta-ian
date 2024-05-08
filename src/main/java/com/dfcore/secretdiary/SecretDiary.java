@@ -8,14 +8,15 @@ public class SecretDiary {
     boolean isLocked = false;
 
     public ArrayList<String> readDiary(){
-
+        if(isLocked){ return new ArrayList<String>();}
 
         return entries;
 
     }
 
     public void writeDiary(String newEntry){
-        entries.add(newEntry);
+        if(!isLocked){entries.add(newEntry);}
+
     }
 
     public boolean lockStatus(){
@@ -29,4 +30,6 @@ public class SecretDiary {
     public void unlock(String pin){
         if (pin.equals("1234")){isLocked = false;}
     }
+
+
 }
